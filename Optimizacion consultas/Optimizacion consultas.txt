@@ -1,0 +1,53 @@
+(1)
+
+SELECT 
+
+	*
+
+FROM 
+	Staff s, Branch b
+
+WHERE 
+	s.branchNo = b.branchNo AND
+
+	s.position = ‘Manager’ AND 
+	b.city = ‘London’);
+
+(2)
+
+SELECT
+
+	*
+
+FROM
+
+	Staff s
+
+JOIN
+
+	Branch b
+
+ON
+
+	s.branchNo=b.branchNo
+
+WHERE
+	s.position='Manager' AND b.city='london'
+
+
+(3)
+
+SELECT
+
+	*
+
+FROM
+
+	(SELECT position,branchNo FROM Staff where position='Manager') s
+
+JOIN
+
+	(Select city,branchNo FROM Branch where city='london') b
+
+ON
+	s.branchNo=b.branchNo
